@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr = [2,3,4,5,6];
+			// arr.splice(2, 1); // 从2的位置开始删除一个
+			// arr.splice(2, 1, 7); // 从2的位置开始删除一个,并且在此处新增一个7(替换)
+			// arr.splice(2, 2, 7); 
+			arr.splice(2, 0, 7, 9); // 增加 // 返回原数组,插入在序列2的前面
+			console.log(arr);
+			
+			/* 总结:
+				返回新数组: concat slice sort 
+				返回原数组: pop push shift unshift reverse splice
+				返回字符串: join toString
+			*/
+		</script>
+	</body>
+</html>

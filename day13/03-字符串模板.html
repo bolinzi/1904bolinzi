@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<span>1</span>
+				<i>：</i>
+				<b>张三</b>
+			</li>
+			
+		</ul>
+		<script>
+			// 模板
+			var json = [
+				{"id" : 1, "name":"张三"},
+				{"id" : 2, "name":"李四"},
+				{"id" : 3, "name":"王五"}
+			]
+			
+			var ul = document.querySelector("ul");
+			var str = "";
+			json.forEach(function (li) {
+				/* str += '<li>'+
+					'<span>'+ li.id +'</span>'+
+					'<i>：</i>'+
+					'<b>张三</b>'+
+				'</li>'; */
+				
+				str += `<li>
+					<span>${li.id}</span>
+					：
+					<b>${li.name}</b>
+					<span>${li.id > 2? "big" : "small"}</span>	
+				</li>`;
+			})
+			console.log(str);
+			ul.innerHTML = str;			
+			
+		</script>
+	</body>
+</html>

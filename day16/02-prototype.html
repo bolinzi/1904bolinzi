@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Animal (name, age) {
+				// 构造函数里的this指向即将new的那个对象
+				// console.log(this);
+				this.name = name; // 给this这个对象新增一个名为name的属性,属性值为传递过来的name参数
+				this.age = age;
+				this.say = function () {
+					alert(this.name);
+				}
+			}
+			// prototype,原型对象
+			console.dir(Animal);
+			
+			Animal.prototype.walk  = function () {
+				console.log(this.name+" is walking");
+			}
+			
+			var cat = new Animal("Tom", 30);
+			var cat1 = new Animal("假老练", 200);
+			console.log(cat);
+			console.log(cat1);
+			// cat.say();
+			// cat1.say();
+			console.log(cat.say === cat1.say); 
+			cat.walk();
+			cat1.walk();
+			console.log(cat.walk = cat1.walk);
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			ol{height: 50px;}
+			li{list-style: none;}
+			ol li {float: left; padding: 5px;}
+			ol li.ac{background: #ddd;}
+			ul li {display: none;}
+			ul li.ac{display: block;}
+			img{width: 300px;}
+		</style>
+	</head>
+	<body>
+		<div id="tab">
+			<ol>
+				<li class="ac">pic1</li>
+				<li>pic2</li>
+				<li>pic3</li>
+			</ol>
+			<ul>
+				<li class="ac"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558406521&di=4f7be71e1414d9df0149f74fb3e57283&imgtype=jpg&er=1&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn23%2F504%2Fw1800h2704%2F20180423%2F2920-fzqvvsa1106816.jpg"></li>
+				<li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557811806298&di=c90853996c7170bb739994f8768b8140&imgtype=0&src=http%3A%2F%2Fdingyue.nosdn.127.net%2FByjWVpYO5rOg4mYV6TpmUWpDjnvz7xQCBESGbCGShJ7qi1533952026314compressflag.jpg"></li>
+				<li><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1704367703,356017401&fm=26&gp=0.jpg"></li>
+			</ul>
+		</div>
+		<script>
+			class Tab {
+				constructor (selector) {
+				    this.container = document.querySelector(selector);
+					this.btns = this.container.querySelector("ol").children;
+					this.imgs = this.container.querySelector("ul").children;
+					this.bindEvents();
+				}
+				
+				bindEvents () {
+					// let _this = this; // 在this指向变化之前使用一个变量留住this
+					for(let i = 0; i < this.btns.length; i++) {
+						this.btns[i].onclick =  () => {
+							this.change(i);
+							// _this.change();
+						}
+					}
+				}
+				change (i) {
+					for(let j = 0; j < this.btns.length; j++) {
+						this.btns[j].classList.remove('ac');
+						this.imgs[j].classList.remove('ac');
+					}
+					this.btns[i].classList.add('ac');
+					this.imgs[i].classList.add('ac');
+				}
+				
+			}
+			new Tab("#tab");
+		</script>
+	</body>
+</html>

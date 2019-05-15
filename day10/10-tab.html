@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			ul{height: 50px;}
+			li{float: left;list-style: none; border: 1px solid #666; padding: 0 5px;}
+			p{display: none;}
+			.ac{display: block;}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		<div>
+			<p class="ac">item1</p>
+			<p>item2</p>
+			<p>item3</p>
+		</div>
+	</body>
+	<script src="../tools.js"></script>
+	<script>
+		var li = tools.$("li", true);
+		var p = tools.$("p", true);
+		
+		for(var i = 0; i < li.length; i++) {
+			li[i].index = i; // 自定义属性,发编号
+			// for只负责绑定事件,for循环结束以后事件才会被触发
+			li[i].onclick = function () {
+				console.log(i); // 永远都是length
+				console.log(this.index);
+				// 把所有p去掉ac
+				for(var j = 0; j < p.length; j++){
+					p[j].classList.remove("ac");
+				}
+				p[this.index].classList.add("ac");
+			}
+		}
+		
+	</script>
+</html>

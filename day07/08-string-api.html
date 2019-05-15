@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str = "1254ds5casdc";
+			console.log(str.charAt(2)); // 返回在指定位置的字符。 5
+			console.log(str.replace("5", "*")); //  替换与正则表达式匹配的子串。
+			console.log(str.slice(-3, -2));  //  提取字符串的片断，并在新的字符串中返回被提取的部分。
+			console.log(str.split("5"));  //  把字符串分割为字符串数组。
+			console.log(str.toUpperCase());  //  把字符串转换为大写。
+			console.log(str.startsWith("1215")); //  字符串是否以某个字符开头（ES6）
+			console.log(str.endsWith("dc "));  //  字符串是否以某个字符结尾（ES6）
+			console.log(str.includes("4ds15"));  //  字符串是否包含某个字符（ES6）
+			console.log(str.repeat(3));  //  重复某个字符串几次（ES6）
+			
+			
+			
+			
+			
+			var str2 = "   gs   d   ";
+			console.log(str2);
+			console.log(str2.trim())  // 去掉字符串前后空格（ES5）
+			console.log(str2.trimLeft())
+			console.log(str2.trimRight())
+			
+			
+			
+			/* 
+			"wcgfsbesdr" w
+			"z"          z */
+			console.log("wcgfsbesdr" > "z");
+			
+			console.log(str.charCodeAt(0));  // 字符串转成ASCII码
+			console.log(String.fromCharCode(87))  //  // ASCII码转成字符串
+			/* 总结常用api:10种
+				charAt  charCodeAt  fromCharCode  replace  split  toUpperCase  trim  startsWidth includes
+				repeat
+			 */
+		</script>
+	</body>
+</html>

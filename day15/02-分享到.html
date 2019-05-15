@@ -1,0 +1,43 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		*{margin: 0; padding: 0;}
+		.box{width: 200px;height: 200px;background: red;
+			position: fixed;left: -200px;top:300px; transition: left 1s;}
+		.ac{left: 0;}
+		.box span{position: absolute;left: 200px;top: 30px;width: 20px;
+			word-wrap: break-word;border: 1px solid #333;} 
+			/* word-wrap: break-word 让文字自动换行*/
+	</style>
+	<script src="tools.js"></script>
+</head>
+<body>
+
+<div class="box">
+	<span>分享到</span>
+</div>
+<script>
+	let box = tools.$(".box");
+	
+	box.onmouseenter = function () {
+		
+		// tools.move2(box, 'left', 0);
+		this.classList.add('ac');
+		
+	}
+	box.onmouseleave = function () {
+		
+		// tools.move2(box, 'left', -200);
+		this.classList.remove("ac");
+	}
+	
+	
+</script>
+</body>
+</html>

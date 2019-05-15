@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+				#box{width: 200px; height: 200px; background: green; position: absolute;}
+			</style>
+		</head>
+		<body>
+			<div id="box"></div>
+			<script>
+				let box = document.querySelector("#box");
+				// let timer = null;
+				box.onclick = function () {
+					// 开新的定时器之前先把旧的停掉
+					clearInterval(box.timer);
+					// timer挂在box自定义属性上
+					box.timer = setInterval(function () {
+						box.style.left = box.offsetLeft + 5 + "px";
+						if(box.offsetLeft >= 300) {
+							clearInterval(box.timer);
+							box.style.left = "300px";
+						}
+					}, 20);
+				}
+			</script>
+	</body>
+</html>

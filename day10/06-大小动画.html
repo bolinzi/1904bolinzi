@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+			<style>
+			.box1{width: 200px; height: 200px; background: red; transition: 2s;}
+			.ac{width: 500px;}
+		</style>
+		<script src="../tools.js"></script>
+	</head>
+	<body>
+		<button>按钮</button>
+		<div id="box" class="box1"></div>
+		<script>
+			var box = tools.$("#box");
+			tools.$("button").onclick = function () {
+				// 在原来的class基础上添加一个ac
+				tools.$("#box").classList.add("ac");
+				// tools.$("#box").className = "box1 ac";
+				
+				// tools.$("#box").classList.remove("ac");
+				
+				/* var timer = setInterval(function () {
+					// 每走一步都要再之前的基础之上加5
+					// offsetWidth每隔20毫秒计算新的值
+					box.style.width = box.offsetWidth + 7 + "px";
+					// 每加一次都要判断是否到达终点
+					if(box.offsetWidth >= 500) {
+						clearInterval(timer);
+						box.style.width = "500px";
+					}
+				}, 20); // 帧 */
+				
+				
+				
+			}
+		</script>
+	</body>
+</html>

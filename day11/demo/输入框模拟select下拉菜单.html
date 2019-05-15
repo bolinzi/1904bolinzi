@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div style="position: relative;">
+			<input type="text" />
+			<ul style="display: none;position: absolute;top: 50px;">
+				<li>成都</li>
+				<li>北京</li>
+				<li>广州</li>
+				<li>东莞</li>
+			</ul>
+		</div>
+		<script>
+			var input = document.querySelector("input");
+			var ul = document.querySelector("ul");
+			var aLi = ul.children;
+			
+			input.onfocus = function(){
+				//获得焦点,ul显示
+				ul.style.display = "block";
+				
+			}
+			
+			input.onblur = function(){
+				console.log("blur");
+				ul.style.display = "none";
+// 				setTimeout(function(){
+// 					//确保先取值,再消失
+// 				},200);
+				
+			}
+			
+			for(var i = 0; i < aLi.length; i++){
+				aLi[i].onmousedown = function(){
+					input.value = this.innerHTML;
+					console.log("click");
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

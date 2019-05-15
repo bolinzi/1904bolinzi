@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/* n-1  
+			i           n-1-i
+			循环趟数    比较次数
+			0            n-1       
+			1            n-2
+			2            n-3 */
+			
+			function bubbleSort (arr) {
+				// 控制趟数  
+				for(var i = 0; i < arr.length-1; i++){
+					// 比较次数
+					for(var j = 0; j < arr.length-1-i; j++){
+						if(arr[j] > arr[j+1]){
+							// 交换顺序
+							var temp;
+							temp = arr[j];
+							arr[j] = arr[j+1];
+							arr[j+1] = temp;
+						}
+					}
+				}
+				return arr;
+			}
+			console.log(bubbleSort([21,32,45,34,35,645,43,3,12,2,2,1,18,99]));
+		</script>
+	</body>
+</html>

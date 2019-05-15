@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>京东floor滚动</title>
+<style>
+*{ margin:0; padding:0}
+ul{ list-style:none}
+.LocationFloorList{ position:fixed; top:100px; left:50%; margin-left:-520px; display:none}
+.LocationFloorList li{ height:30px; line-height:30px; width:30px; font-size:12px; text-align:center; border-bottom:1px dashed #ccc; cursor:pointer;}
+.LocationFloorList li b{ font-weight:normal}
+.LocationFloorList li span{ display:none; font-size:12px;}
+.LocationFloorList li.ac{ color:#fff; background:red}
+.LocationFloorList li.ac b{ display:none;}
+.LocationFloorList li.ac span{ display:inline}
+
+.main{ width:960px; margin:0 auto;}
+.floor{ margin-bottom:20px; height:600px;}
+.floor h3{ background:#333; height:30px; line-height:30px; text-indent:1em; color:#fff; font-size:20px}
+.floor h3.ac{ background:red}
+.floorA{ background:#ccc;}
+.floorB{ background:#eee;}
+.floorC{ background:#ddd;}
+.floorD{ background:#bbb;}
+.floorE{ background:#aaa;}
+.floorF{ background:#ccc;}
+</style>
+
+<script>
+window.onload=function(){
+	
+	var LocationFloorList=document.getElementsByClassName('LocationFloorList')[0];
+	var aLi=LocationFloorList.getElementsByTagName('li');
+	var aFloor=document.getElementsByClassName('floor');
+		
+	
+	window.onscroll=function(){
+		//显示楼层编号-------------------------------------------------
+		var scrolltop=document.documentElement.scrollTop || document.body.scrollTop;
+		if(scrolltop>100){
+			LocationFloorList.style.display='block';
+		}else{
+			LocationFloorList.style.display='none';
+		};
+		
+		// 根据楼层滚动位置，定位编号------------------------------------------------
+		for(var j=0; j<aFloor.length; j++){
+			aFloor[j].index=j;
+			if(aFloor[j].offsetTop<scrolltop+400){//400为接近屏幕的敏感区
+				for(var l=0; l<aFloor.length; l++){
+					aLi[l].className='';
+				};
+				aLi[aFloor[j].index].className='ac';
+			}
+		};
+	};
+	
+	//点击编号，跳转到相对楼层-----------------------------------------------
+	for(var i=0; i<aFloor.length; i++){
+		aLi[i].index=i;
+		aLi[i].onclick=function(){
+			var start=document.documentElement.scrollTop || document.body.scrollTop;
+			var end=aFloor[this.index].offsetTop;
+			animate(start,end);
+		}
+	};
+	//animate-------------------------------------------------------
+	var timer;
+	function animate(start,end){
+		var dis=end-start;
+		var count=parseInt(1500/30);
+		var n=0;
+		clearInterval(timer);
+		timer = setInterval(function(){
+				var speed = end-start > 0 ?  Math.ceil((end-start)/10) : Math.floor((end-start)/10);
+				start += speed;
+				//控制窗口滚动条的位置，分别为x,y坐标
+				window.scrollTo(0,start);
+				if(start == end)
+					clearInterval(timer);
+				
+			},30); 
+	};
+	
+	
+}
+
+
+
+</script>
+
+
+
+
+
+</head>
+
+<body>
+<div class="main">
+	<div class="floor floorA"><h3>1服装</h3></div>
+    <div class="floor floorB"><h3>2电器</h3></div>
+    <div class="floor floorC"><h3>3手机</h3></div>
+    <div class="floor floorD"><h3>4美妆</h3></div>
+    <div class="floor floorE"><h3>5运动</h3></div>
+    <div class="floor floorF"><h3>6汽车</h3></div>
+    <div class="floor floorA"><h3>7玩具</h3></div>
+    <div class="floor floorB"><h3>8食品</h3></div>
+    <div class="floor floorC"><h3>9家具</h3></div>
+    <div class="floor floorD"><h3>10游戏</h3></div>
+    <div class="floor floorE"><h3>11图书</h3></div>
+    <div class="floor floorF"><h3>12手表</h3></div>
+</div>
+
+<ul class="LocationFloorList">
+	<li class="ac"><b>1F</b><span>服装</span></li>
+    <li><b>2F</b><span>电器</span></li>
+    <li><b>3F</b><span>手机</span></li>
+    <li><b>4F</b><span>美妆</span></li>
+    <li><b>5F</b><span>运动</span></li>
+    <li><b>6F</b><span>汽车</span></li>
+    <li><b>7F</b><span>玩具</span></li>
+    <li><b>8F</b><span>食品</span></li>
+    <li><b>9F</b><span>家具</span></li>
+    <li><b>10F</b><span>游戏</span></li>
+    <li><b>11F</b><span>图书</span></li>
+    <li><b>12F</b><span>手表</span></li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 加号具有二义性  数字加法  字符串拼接
+			var a = 2;
+			console.log(a+1);
+			
+			var b = "2";
+			console.log(b+1); // 隐式类型转换
+			console.log(typeof (b+1));
+			
+			console.log(b-1); // 1 隐式类型转换 "2"-1   2-1
+			// 乘除也有类似的功能
+			
+			// var str = "23.45";
+			// var str = "23x45";
+			var str = "23.45.67";
+			// var str = "23.4x5";
+			// var str = "a23.4x5";
+			// 从左往右看,遇到第一个小数点或者其他字符就终止
+			// console.log(parseInt(str));
+			// 从左往右看,遇到第二个小数点或者其他字符终止
+			// console.log(parseFloat(str));
+			
+			// 只要字符串里含有特殊字符或者一个以上的小数点结果就是NaN
+			console.log(Number(str));
+			
+			
+		</script>
+	</body>
+</html>

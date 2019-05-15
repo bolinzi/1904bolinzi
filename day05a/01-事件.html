@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{width: 200px;height: 200px;background: red;}
+			p{background: green;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<p>www</p>
+		</div>
+	</body>
+	<script>
+		// 绑定事件
+		function fn () {
+			alert(1);
+		}
+		var box = document.getElementById("box");
+		
+		/* box.onclick = fn; */
+		
+		/* box.onclick = function () {
+			alert(2);
+		} */
+		
+		/* box.ondblclick = function () {
+			alert(666);
+		} */
+		      // 双击
+		// over和out这一组事件在div的子元素划过的时候会反复触发
+	/* 	box.onmouseover = function () {
+			console.log("over"); // 进
+		}
+		
+		box.onmouseout = function () {
+			console.log("out");  // 出
+		} */
+		
+		// enter和leave不会反复触发
+		/* box.onmouseenter = function () {
+			console.log("enter");
+		}
+		box.onmouseleave = function () {
+			console.log("leave");
+		} */
+		
+		box.onmousemove = function () {
+			console.log("move");
+		} // 移动
+		
+		// mouseover，mouseout，mouseenter、mouseleave、mousemove
+	</script>
+</html>

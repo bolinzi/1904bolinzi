@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 求1+2!+3!+...+20!的值
+			
+			// 分析: 先把每个数的阶乘算出来,然后再把他们都相加
+			// 1/ 先算阶乘
+			// 2/ 把阶乘的结果相加
+			
+			// 循环1-20  i
+			// 每循环一趟,计算i的阶乘, 用一个数来累加
+			//    1*2*3*...*i
+			//    循环1 - i
+			
+			for(var i = 1, sum = 0; i <= 20; i++){
+				// 计算i的阶乘
+				for(var j = 1, res = 1; j <= i; j++){
+					res *= j;
+				}
+				// 把阶乘的结果累加
+				sum += res;
+			}
+			console.log(sum);
+		
+			
+			
+			// 求100-999之间的水仙花数
+			
+			// 分析: 循环100-999  i
+			//   判断i是否为水仙花数
+			//   取出个十百位, 根据公式计算条件是否成立
+			for(var i = 100; i < 1000; i++){
+				var ge = i % 10;
+				var shi = parseInt(i/10) % 10;
+				var bai = parseInt(i/100);
+				if(i === ge*ge*ge + shi*shi*shi + bai*bai*bai){
+					console.log(i+"是水仙花数");
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

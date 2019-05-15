@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str = "guvbnhiurhewiugfdusvckjudsf";
+			var obj = {};
+			for(var i = 0; i < str.length; i++) {
+				if(obj[str[i]]){
+					// 曾经来过
+					obj[str[i]]++;
+				}else{
+					// 第一次出现
+					obj[str[i]] = 1;
+				}
+			}
+			console.log(obj);
+		</script>
+	</body>
+</html>

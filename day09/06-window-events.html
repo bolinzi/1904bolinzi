@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			
+			// 窗口加载结束的事件
+			window.onload = function () {
+				// 窗口加载结束之后才会执行
+				var box = document.getElementById("box");
+				console.log(box);
+			}
+			console.log(123);
+			
+			// 系统滚动条滚动事件
+			window.onscroll = function () {
+				// console.log(456);
+				// 缺德定理
+				var top = document.documentElement.scrollTop || document.body.scrollTop;
+				var left = document.documentElement.scrollLeft || document.body.scrollLeft;
+				console.log(top, left);
+			}
+			
+			window.onresize = function () {
+				// 窗口大小改变的时候
+				var width = document.documentElement.clientWidth || document.body.clientWidth;
+				var height = document.documentElement.clientHeight || document.body.clientHeight;
+				console.log(width, height);
+			}
+		</script>
+	</head>
+	<body style="height: 10000px;width: 2000px;">
+		<div id="box">box</div>
+		
+	</body>
+</html>
+

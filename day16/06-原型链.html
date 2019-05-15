@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Animal (name) {
+				this.name = name;
+			}
+			Animal.prototype.say = function () {
+				console.log(this.name);
+			}
+			
+			var pig = new Animal("佩奇");
+			
+			pig.say();
+			console.log(pig);
+			console.log(Animal.prototype);
+			// 原型上的constructor指回构造函数本身
+			console.log(Animal.prototype.constructor === Animal);
+			// 实例的__proto__指向构造函数的prototype
+			console.log(pig.__proto__ === Animal.prototype);
+			
+			var pig1 = new Animal("乔治");
+			console.log(pig1.__proto__ === Animal.prototype);
+			
+			
+			console.log(Animal.prototype.__proto__ === Object.prototype);
+			
+			Animal.prototype = new Object();
+			
+			console.log(pig.toString()); // 沿着原型链找到了object.prototype.toString
+			
+			var num = new Number(20);
+			console.dir(num);
+			
+			
+		</script>
+	</body>
+</html>

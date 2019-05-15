@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1></h1>
+		<script>
+			// 多久放学？21:00
+			function fn () {
+				var date = new Date();
+				var startTime = date.getTime();
+				
+				date.setHours(21, 0, 0); // 把表盘拨到21：00
+				var endTime = date.getTime();
+				
+				var time = (endTime - startTime)/1000;
+				
+				var seconds = time % 60;
+				time -= seconds; // 零散的秒数过滤掉
+				var minutes = time/60 % 60;
+				time -= minutes*60; // 过滤掉分钟数所包含的秒数
+				var hour = time/60/60;
+				
+				document.querySelector("h1").innerHTML = "距离放学还有"+ hour +"小时"+ minutes +"分钟"+ seconds +"秒";
+			}
+			fn();
+			setInterval(fn, 1000);
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

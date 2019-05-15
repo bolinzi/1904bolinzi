@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr = [12, 34, 54, 65, 6, 76, 67, 54];
+			console.log(arr);
+			console.log(arr.length);
+			console.log(arr[4]);
+			
+			var arr1 = new Array(5); // 申明了一个长度为5的空数组
+			arr1[1] = 10;
+			console.log(arr1); // 有一些元素没有值叫做 稀疏数组
+			console.log(arr1[0]); // undefined
+			
+			var arr2 = new Array(2,3,4,4,5,3,67,87,7); // 参数都是数组的元素
+			console.log(arr2);
+			
+			// js弱类型
+			var arr3 = [2,3,"dscd", true];
+			console.log(arr3);
+			
+			var arr4 = [[1,2,3],[4,5,6],[7,8,9]]; // 二维数组
+			console.log(arr4.length);
+			arr4[arr4.length] = 10;
+			console.log(arr4.length);
+
+		</script>
+	</body>
+</html>

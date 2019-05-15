@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">box</div>
+		<script>
+			/* function test (a) {
+				console.log(a);
+			} */
+			
+			var test = (a,b) => {
+				console.log(a,b);
+			}
+			// 一个参数,小括号可以省略
+			var test2 = a => {
+				console.log(a);
+			}
+			
+			// 函数体只有一句话,大括号可以省略
+			var test3 = a => console.log(a);
+			
+			// 如果函数只有一句,而且这一句就是返回值的话,return可以省略
+			var test4 = a => a+1;
+			
+			console.log(test4(123));
+			
+			// 不会提升
+			// 没有自己的this
+			// 写法更简洁
+			
+			document.querySelector("#box").onclick =  () => {
+				console.log(this);
+			}
+			
+			var fn = () => ({id:1 , "name":'lisi'}); // return 一个对象,而不是函数体
+			
+			// 省略了function、return关键字和大括号。
+			/* 箭头函数this指向的固定化，并不是因为箭头函数内部有绑定this的机制，
+			实际原因是箭头函数根本没有自己的this,导致内部的this就是外层代码块的this。
+			正是因为这个，所以箭头函数也不能做构造函数。 */
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

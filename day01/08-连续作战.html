@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 为抵抗洪水，战士连续作战89小时，编程计算共多少天零多少小时？
+			var hours = 89;
+			// 先计算零散的小时数(不足一天的)
+			var hour = hours % 24;
+			// 总的小时数-hour,除以24
+			var day = (hours-hour) / 24;
+			console.log(day, hour);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">box</div>
+		<script>
+			// 1 全局this指向window
+			// console.log(this);
+			
+			// 2 事件里的this指事件触发对象
+			document.querySelector('#box').onclick = function () {
+				console.log(this); // box
+			}
+			
+			// 3 对象的方法里面的this指对象本身
+			var obj = {
+				name: "王二麻子",
+				say: function () {
+					console.log(this.name);
+				}
+			}
+			
+			// 4 构造函数里的this指将来要new的那个实例对象
+			//   构造函数原型方法里的this指将来要new的那个实例对象
+			function Fn (name) {
+				this.name = name;
+			}
+			
+			
+			var n = 10;
+			function fn () {
+				console.log(this.n);
+			}
+			// var f = new fn(); // undefined
+			
+			var obj = {
+				n: 20,
+				"fn": fn
+			};
+			fn(); // 10
+			obj.fn(); // 20
+			
+			var obj2 = {};
+			
+			// 5 IIFE的this指向window
+			(obj2.fn = obj.fn)();
+			
+			
+			var object = {
+				//getName是Object的方法
+				getName : function(){
+				//x是getName里面的函数，它是作为函数调用的，this就是window啦
+					function x(){
+						console.log(this);
+					}
+					x();
+				}
+			}
+			object.getName(); // window
+			
+			var obj3 = {
+				getName : function(){
+// 					setTimeout(function () {
+// 						console.log(this); // window
+// 					}, 1000);
+					setTimeout(() => {
+						console.log(this); // obj3
+					}, 1000);
+				}
+			}
+			obj3.getName();
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

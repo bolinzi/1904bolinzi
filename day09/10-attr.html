@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="images/01.png" id="img" class="pic pic1" alt="">
+		<script>
+			// attribute
+			var img = document.querySelector("img");
+			console.log(img.src);
+			console.log(img.id);
+			console.log(img.className);
+			console.log(img.classList); // 集合
+			
+			// 自定义属性
+			img.setAttribute('data-url', 'images/02.png');
+			
+			var url = img.getAttribute('data-url');
+			console.log(url);
+			
+		</script>
+	</body>
+</html>

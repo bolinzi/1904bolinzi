@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function chooseSort (arr) {
+				// 外层循环i  0 - length-2
+				// 内层 j    i+1 - length-1
+				for(var i = 0; i < arr.length-1; i++){
+					var min = i; // 默认第i个是最小值
+					for(var j = i+1; j < arr.length; j++){
+						if(arr[min] > arr[j]) {
+							// min并不是最小值
+							// 记录最小下标
+							min = j;
+						}
+						
+					}
+					// min和i交换
+					var temp = arr[i];
+					arr[i] = arr[min];
+					arr[min] = temp;
+				}
+				return arr;
+			}
+			console.log(chooseSort([2,2,3,4,2,1,3,12,8]))
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+function insertSort(arr){
+  //所以从第1个元素开始将无序数列的元素插入到有序数列中
+  for(var i = 1; i < arr.length; i++){
+    //升序
+    if(arr[i] < arr[i-1]){
+      //取出无序数列中的第i个作为被插入元素
+      var guard = arr[i];
+      //记住有序数列的最后一个位置，并且将有序数列位置扩大一个(全部后移一位)
+      var j = i - 1;
+      arr[i] = arr[j];
+      
+      //比大小，找到被插入元素所在的位置
+      while(j >= 0 && guard < arr[j]){
+        // 依次插入到数组当中
+        arr[j+1] = arr[j];
+        // 完成以后j减1
+        j--;
+      }
+
+      //插入
+      arr[j+1] = guard;
+    }
+  }
+  return arr;
+}
+
+console.log(insertSort([10, 9, 8, 7, 6, 5]));
+</script>
+</body>
+</html>

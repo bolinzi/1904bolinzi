@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function add () {
+				// console.log(a+b+c);
+				// console.log(arguments); // 实参副本, 把实参复制一份放进来
+				// 通过索引访问某一个实参
+				// console.log(arguments[2]);
+				// console.log(arguments.length); // 得到实参的长度
+				// 把所有实参加起来
+				// 从0到arguments.length-1循环
+				for(var i = 0, sum = 0; i < arguments.length; i++){
+					sum += arguments[i];
+				}
+				console.log(sum);
+				
+			}
+			
+			add(1, 2, 5, 6);
+			add(1, 2);
+		</script>
+	</body>
+</html>

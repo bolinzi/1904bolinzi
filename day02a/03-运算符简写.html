@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var a = 10;
+			// a = a + 3;
+			// a += 3;
+			// a -= 3
+			// a %= 3; // a = a % 3;
+			
+			// a += 1;
+			// a++;
+		
+			console.log(a++); // 后置,先用后加
+			console.log(a);
+			console.log(++a); // 前置,先加后用
+			
+			var b = 10;
+			console.log(b++ + ++b); // 22
+			            // 10  + 12
+			console.log(b);			
+			
+			var k=5;  
+			console.log(k++ + ++k +k +k++);  // 26
+			            //5 +  7  +7 +7
+			console.log(k); // 8
+			
+			// 进制转换
+			var z = 23;
+			var str = z.toString(12); // 10进制转其他进制
+			console.log(str);
+			console.log(parseInt(str,12)); // 其他进制转十进制
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 判断某一个数是否是完全数
+			function isPerfect (num) {
+				for(var i = 1, sum = 0; i < num; i++){
+					if(num % i === 0) sum += i;
+				}
+				if(sum === num) {
+					return true;
+				}else{
+					return false;
+				}
+			}
+			
+			// 列出m-n之间的所有完全数
+			function fn (m, n) {
+				for(var j = m; j <= n; j++){
+					// 逻辑短路
+					isPerfect(j) && console.log(j);
+				}
+			}
+			fn(2,10000);
+		</script>
+	</body>
+</html>

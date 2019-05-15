@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.person {border: 1px solid #333;}
+		</style>
+	</head>
+	<body>
+		<script>
+			var json = [
+				{
+					"name" : "zhangsan",
+					"age" : 18
+				},
+				{
+					"name" : "lisi",
+					"age" : 19
+				},
+				{
+					"name" : "wangwu",
+					"age" : 9
+				}
+			];
+			
+			// 创建元素的方式
+			var table = document.createElement("table");
+			table.className = "person"
+			json.forEach(function (person) {
+				// 每循环一次就是一条person数据
+				var tr = document.createElement("tr");
+				for(var key in person) {
+					// 每循环一次就事一个键值对,要创建一个<td></td>
+					var td = document.createElement("td");
+					td.innerHTML = person[key];
+					tr.appendChild(td);
+				}
+				// 再创建一个额外的删除<td></td>
+				var delTd = document.createElement("td");
+				delTd.innerHTML = "<a href='javascript:;'>删除</a>";
+				tr.appendChild(delTd);
+				// tr创建结束,append到table中
+				table.appendChild(tr);
+			})
+			
+			// 一个页面只有一个body, DOM认为body很特殊,所以可以document.body直接获取
+			console.log(document);// 日志
+			console.dir(document); // 查看对象的具体解构
+			
+			document.body.appendChild(table);
+			
+			// 找到所有删除按钮,绑定点击事件
+			var btns = document.querySelectorAll("a");
+			for(var i = 0; i < btns.length; i++) {
+				btns[i].onclick = function () {
+					// 删除当前一行
+					// console.log(this);
+					// this.parentNode.parentNode.remove();
+					table.removeChild(this.parentNode.parentNode);
+				}
+			}
+			
+		</script>
+	</body>
+</html>

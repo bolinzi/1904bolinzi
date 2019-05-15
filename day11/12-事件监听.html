@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style>
+			div{border: 1px solid #333;}
+			#yeye{width: 500px; height: 500px;}
+			#son{width: 200px; height: 200px;}
+			#sunzi{width: 60px; height: 60px;}
+		</style>
+	</head>
+	<body>
+		<div id="yeye">
+			<div id="son">
+				<div id="sunzi"></div>
+			</div>
+		</div>
+		<button onclick="remove()">移出sunzi的事件</button>
+		<script src="../tools.js"></script>
+		<script>
+			var yeye = tools.$("#yeye");
+			var son = tools.$("#son");
+			var sunzi = tools.$("#sunzi");
+			
+			// 添加一个事件监听器
+			// 第三个参数是一个boolean, isCapture  默认值是false,代表冒泡
+			// true代表再捕获阶段处理事件
+			son.addEventListener('click', function () {
+				console.log("son");
+			}, true);
+			son.addEventListener('click', function () {
+				console.log("son son son");
+			}, true);
+			
+			yeye.addEventListener('click', function () {
+				console.log("yeye");
+			}, true);
+			function fn() {
+				console.log("sunzi");
+			}
+			
+			tools.on(sunzi, 'click',fn, true);
+			
+			function remove () {
+				console.log(111)
+				tools.off(sunzi, 'click', fn, true);
+			}
+			
+			
+		</script>
+	</body>
+</html>

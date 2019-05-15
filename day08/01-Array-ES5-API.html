@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr = [5,1,3,23,7,8,9,12];
+			console.log(arr);
+			// 循环遍历数组, item当前遍历到的这个元素,index指下标,原数组
+			/* arr.forEach(function (item, index) {
+				console.log(item, index);
+			}) */
+			
+			// 遍历arr,把每一个返回值放到一个新的数组里,新数组
+			/* var arr1 = arr.map(function (item, index) {
+				return item*2;
+			})
+			console.log(arr1); */
+			
+			// 过滤, 保留return为true的结果,放到一个新的数组里
+			/* var arr2 = arr.filter(function (item, index) {
+				return item < 10;
+			})
+			console.log(arr2); */
+			
+			// 判断每一个item,只要有任意一个满足小于10结果就为true
+			// 只要找到一个满足条件的,就不会再继续找了
+			/* var isSmall = arr.some(function (item, index) {
+				return item < 100;
+			})
+			console.log(isSmall); */
+			
+			// 必须每个item全部满足条件结果才为true
+			var isSmall = arr.every(function (item, index) {
+				return item < 10;
+			})
+			console.log(isSmall);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>旋转木马轮播图</title>
+    <link rel="stylesheet" href="css/css.css"/>
+</head>
+<body>
+<div class="wrap" id="wrap">
+   <div class="slide" id="slide">
+       <ul>
+           <li><a href="#"><img src="images/slidepic1.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="images/slidepic2.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="images/slidepic3.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="images/slidepic4.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="images/slidepic5.jpg" alt=""/></a></li>
+       </ul>
+       <div class="arrow" id="arrow">
+           <a href="javascript:;" class="prev" id="prev"></a>
+           <a href="javascript:void(0);" class="next" id="next"></a>
+       </div>
+   </div>
+</div>
+<!-- function getByClass(className, parent){
+  document.getElementsByTagName("*");
+  return [];
+} -->
+</body>
+</html>
+<script src="tools.js"></script>
+<script src="move.js"></script>
+<script>
+    var _json = [
+        {   //  1
+            "width":400,
+            "top":20,
+            "left":50,
+            "opacity":20,
+            "zIndex":2
+        },
+        {  // 2
+            "width":600,
+            "top":70,
+            "left":0,
+            "opacity":80,
+            "zIndex":3
+        },
+        {   // 3
+            "width":800,
+            "top":100,
+            "left":200,
+            "opacity":100,
+            "zIndex":4
+        },
+        {  // 4
+            "width":600,
+            "top":70,
+            "left":600,
+            "opacity":80,
+            "zIndex":3
+        },
+        {   //5
+            "width":400,
+            "top":20,
+            "left":750,
+            "opacity":20,
+            "zIndex":2
+        }
+	];
+	var list = document.getElementsByTagName("li");
+	showData();
+	function showData(){
+		for( var i = 0 ; i < list.length ; i++ ){
+      list[i].style.zIndex = _json[i].zIndex;
+			move( list[i] ,_json[i] ,function(){
+				//运动结束后  改变开关变量的值   使按钮点击生效
+				f = true;
+			});
+		}
+	}
+	var wrap = tools.$("#wrap");
+	var arrow = tools.$("#arrow");
+	var prev = tools.$("#prev");
+	var next = tools.$("#next");
+	wrap.onmouseover = function(){
+		move( arrow , { opacity : 100 } )
+	}
+	wrap.onmouseout = function(){
+		move( arrow , { opacity : 0 } )
+	}
+	var f = true;//控制按钮频繁点击时   图片频繁旋转问题
+	//如果值为真  按钮可以点击 触发函数执行
+	prev.onclick = function(){
+		//操作数组 将数组中的第一个数删除 并添加到数组的最后面
+		// 然后根据数组中的数据   改变页面图片的位置
+		if( f ){ //函数截流
+			_json.push( _json.shift() );
+			showData();
+			f = false;
+		}
+	}
+
+	next.onclick = function(){
+		//操作数组 将数组中的最后一个数删除 并添加到数组的最前面
+		_json.unshift( _json.pop() );
+		showData();
+	}
+</script>

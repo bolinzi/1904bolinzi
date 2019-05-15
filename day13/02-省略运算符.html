@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function fn (a,b,c,d) {
+				console.log(a+b+c+d);
+			}
+			
+			var arr = [3,5,2,5];
+			// fn(arr[0],arr[1],arr[2],arr[3]);
+			// 扩展运算符
+			fn(...arr);
+			
+			// rest运算符
+			
+			function fn2 (...args) {
+				args.push(10);
+				console.log(args);
+			}
+			
+			// fn2(1,2,3,2,4,5);
+			var arr2 = [1,2,3,2,4,5];
+			fn2(...arr2); // 先展开,传递给函数,函数再合并,就不是引用传递了
+			console.log(arr2)
+			
+			
+		</script>
+	</body>
+</html>

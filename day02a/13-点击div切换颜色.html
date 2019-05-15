@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{width: 200px;height: 200px;background: red;}
+		</style>
+	</head>
+	<body>
+		<div id="box" onclick="color()"></div>
+		<script>
+			var isRed = true; // 开关,初始值为true,代表红色
+			function color () {
+				
+				var box = document.getElementById("box");
+				// 只能取到内联样式
+				var bg = box.style.background;
+				// 判断开关是否为red
+				if(isRed){
+					box.style.background = "green";
+					// isRed = false;
+				}else{
+					box.style.background = "red";
+					// isRed = true;
+				}
+				isRed = !isRed; // 切换开关的状态
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// ES6语法糖
+			class Animal {
+				constructor (name) {
+					// 构造函数
+				    this.name = name;
+				}
+				eat () {
+					// class里的方法默认就在prototype上
+					console.log(this.name + " is eating");
+				}
+			}
+			
+			var mouse = new Animal("Jerry");
+			mouse.eat();
+			var mouse1 = new Animal("风车车");
+			mouse1.eat();
+			console.log(mouse.eat === mouse1.eat);
+		</script>
+	</body>
+</html>

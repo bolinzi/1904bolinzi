@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 输入年份，计算某一年是否是闰年
+			// 能整除4且不能整除100或能整除400
+			var year = Number(prompt("请输入一个年份"));
+			if(year%4 === 0 && year%100 !== 0 || year%400 === 0){
+				console.log(year+"是闰年");
+			}else{
+				console.log(year+"是平年");
+			}
+		</script>
+	</body>
+</html>

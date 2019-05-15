@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 前端自己使用,属性名可不加引号
+			// 但是他如果前后端传输,必须双引号
+			var json = [
+				{
+					name : "zhangsan",
+					"age" : 18,
+					// "likes" : ["抽烟","喝酒","烫头"]
+				},
+				{
+					"name" : "lisi",
+					"age" : 19
+				},
+				{
+					"name" : "wangwu",
+					"age" : 9
+				}
+			];
+			
+			var str = "<table>";
+			for(var i = 0; i < json.length; i++) {
+				str += "<tr>";
+				for(var key in json[i]){
+					str += "<td>"+ json[i][key] +"</td>";
+				}
+				str += "</tr>";
+			}
+			str += "</table>";
+			document.write(str);
+			
+			
+		</script>
+	</body>
+</html>

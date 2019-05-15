@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var a = 20;
+			function fn() {
+				var b = 10;
+				console.log(b);
+				function foo () {
+					var c = 30;
+					console.log(c);
+				}
+				foo();
+				// foo函数调用结束以后,c变量也就跟着出栈,就会被内存销毁,变量的生命周期
+			}
+			
+			console.log(a); // 20
+			
+			
+			
+			fn();  // 10 30
+			console.log(123); // 123
+			
+			
+			/* 作用域链
+
+				 内层环境可以访问外层中的变量和函数，而外层环境不能访问内层的变量和函数 */
+		</script> 
+	</body>
+</html>

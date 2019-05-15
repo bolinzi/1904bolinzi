@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- <div id="box" onclick="fn()">box</div> -->
+		<div id="box">box</div>
+		<script>
+			function fn () {
+				alert(2);
+			}
+			
+			var box = document.querySelector("#box");
+			
+			/* box.onclick = function () {
+				alert(3);
+			} */
+			
+			box.onclick = fn; // 给的是函数的引用(地址)
+			
+			
+		</script>
+	</body>
+</html>

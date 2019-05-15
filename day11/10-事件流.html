@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style>
+			div{border: 1px solid #333;}
+			#yeye{width: 500px; height: 500px;}
+			#son{width: 200px; height: 200px;}
+			#sunzi{width: 60px; height: 60px;}
+		</style>
+	</head>
+	<body>
+		<div id="yeye">
+			<div id="son">
+				<div id="sunzi"></div>
+			</div>
+		</div>
+		<script src="../tools.js"></script>
+		<script>
+			var yeye = tools.$("#yeye");
+			var son = tools.$("#son");
+			var sunzi = tools.$("#sunzi");
+			// 子元素的事件被触发时，父级也会被触发（冒泡）
+			son.onclick = function () {
+				console.log("son");
+			}
+			
+			sunzi.onclick = function (e) {
+				e = e || event;
+				console.log("sunzi");
+				// 如果不希望sunzi的事件往外传递,那么就在这里阻止冒泡
+				e.stopPropagation();
+				e.cancelBubble = true;
+			}
+			
+			yeye.onclick = function () {
+				console.log("yeye");
+			}
+			
+		</script>
+	</body>
+</html>

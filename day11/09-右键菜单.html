@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.menu{position: absolute;}
+		</style>
+	</head>
+	<body>
+		<script>
+			var ul = document.createElement("ul");
+			
+			document.oncontextmenu = function (e) {
+				e = e ||event;
+				console.log(e);
+				
+				
+				ul.className = "menu";
+				ul.innerHTML = "<li>复制</li><li>粘贴</li><li>删除</li>";
+				// 菜单出现在鼠标位置
+				ul.style.left = e.clientX + "px";
+				ul.style.top = e.clientY + "px";
+				document.body.appendChild(ul);
+				
+				
+				
+				// 阻止默认事件
+				if(e.preventDefault){
+					e.preventDefault()
+				}else{
+					window.event.returnValue = false;
+				}
+			}
+			
+			document.onclick = function () {
+				// 把ul删除
+				document.body.removeChild(ul);
+			}
+		</script>
+	</body>
+</html>

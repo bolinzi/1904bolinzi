@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="reload()">刷新</button>
+		<button onclick="go()">跳转</button>
+		<script>
+			// 缓存:浏览器在加载完成一个页面以后会把部分css/js一类的文件缓存在本地
+			//   下一次再请求相同页面的时候就会先寻找缓存,如果缓存没有再重新请求
+			// ctrl+F5 强制刷新(清除缓存的刷新)
+			
+			console.log(location);
+			function reload () {
+				// 刷新页面
+				location.reload();
+				location.reload(true); // 强制刷新
+			}
+			function go () {
+				location.replace("http://www.baidu.com");
+			}
+		</script>
+	</body>
+</html>

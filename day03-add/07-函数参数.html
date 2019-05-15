@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 再调用的时候把实参传递给形参,形参的值就是实参的值
+			function test(a){
+				// a  形参 (形式参数) 
+				console.log(a);
+			}
+			
+			test(12); // 12 实参 (实际参数) 
+			
+			function add(a, b){
+				console.log(a+b);
+			}
+			
+			add(2,3, 5);
+			add("2","3");
+			add("2",true);
+			add(1);
+			
+			
+		</script>
+	</body>
+</html>

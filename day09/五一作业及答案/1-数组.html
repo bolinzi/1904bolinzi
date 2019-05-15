@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  //创建一个长度为100的数组arr，依次放入100个100以内的随机整数（0-99），通过计算得到另一个长度100的数组arr2，arr2的每个索引对应的值为此索引在arr中出现的次数，如：20这个数字在arr中出现了5次，那么arr2[20]的值就应该等于5。求arr2
+  var arr = new Array(100);
+  var arr2 = new Array(100);
+  for(var i = 0; i < arr.length; i++) {
+    // arr中插入随机数，假设这个值为10
+    arr[i] = Math.floor(Math.random() * 100);
+    //得到当前这个随机数在arr里得索引
+    var index = arr.indexOf(arr[i]);
+    // 判断得到的索引是否等于当前的i
+    // 如果等于说明10是第一次出现
+    //   所以arr2的第十个数应该等于1
+    // 否则arr2的第十个数就应该在原来的基础之上加个1
+    if(index === i){
+      arr2[arr[i]] = 1;
+    }else{
+      arr2[arr[i]]++;
+    }
+  }
+  console.log(arr);
+  console.log(arr2);
+</script>
+  
+</body>
+</html>

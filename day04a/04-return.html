@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// return
+			function add () {
+				for(var i = 0, sum = 0; i < arguments.length; i++){
+					sum += arguments[i];
+				}
+				// 返回了sum
+				// 返回到函数的调用位置
+				// 结束一个函数的执行
+				return sum; // 运行到这的时候函数就结束了
+				return 2; // 根本执行不了
+			}
+			var num = add(2,3,4,5);
+			console.log(num);
+			
+			
+			function test(a) {
+				if(a>0){
+					return; // 结束函数
+				}
+				console.log(a);
+			}
+			
+			var n = test(2); // 如果一个函数没有返回值,那么接收到的结果是undefined
+			console.log(n);
+			
+			/* return关键字
+			 1.结束函数的执行
+			 2.交回函数执行权
+			 3.返回一个结果函数调用位置 */
+		</script>
+	</body>
+</html>

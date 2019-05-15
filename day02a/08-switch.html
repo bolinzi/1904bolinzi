@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// var num = prompt("输入一个1-3的数字");
+			var num = Number(prompt("输入一个1-3的数字"));
+			// 全等匹配
+			// 如果不写break那么case会穿透
+			switch(num){
+				case 1:
+					alert(1);
+				// break;
+				case 2:
+					alert(2);
+				// break;
+				case 3:
+					alert(3);
+				// break;
+				default:
+					alert("请输入一个1-3的数字");
+			}
+		</script>
+	</body>
+</html>

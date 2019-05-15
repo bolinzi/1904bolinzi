@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box{width: 50%; height: 200px; background: red; padding: 20px; border: 10px solid #333;}
+			#container{width: 200px; height: 300px; border: 1px solid #333; overflow: scroll;}
+		</style>
+		<script src="../tools.js"></script>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="container">
+			<p>gdfbsga</p>
+			<p>gdfbsga</p>
+			<p>gdfbsga</p>
+			<p>gdfbsga</p>
+			<p>gdfbsga</p>
+			<p>gdfbsga</p>
+			<p>gdfbsga</p>
+			<p>gdfbsga</p>
+			<p>gdfbsga</p>
+			<p>gdfbsga</p>
+			<p>gdfbsga</p>
+			<p>gdfbsga</p>
+		</div>
+		<script>
+			var box = tools.$("#box");
+			console.log(box.style.width);
+			console.log(tools.getStyle(box, "width"));
+			console.log(box.clientWidth); // 包含宽度和内填充
+			console.log(box.offsetWidth); // 包含宽度和内填充以及边框
+			
+			var container = tools.$("#container");
+			console.log(container.scrollHeight);
+			console.log(container.scrollWidth);
+		</script>
+	</body>
+</html>

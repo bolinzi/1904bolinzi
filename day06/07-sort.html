@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr = [12,21,6,3,9,4,1];
+			var arr1 = arr.sort(); // 按照编码排序
+			console.log(arr1);
+			
+			var arr2 = arr.sort(function (a, b) {
+				return a-b; // 小于等于0的话那么a,b不交换位置 小到大排,返回新数组
+			})
+			console.log(arr2);
+			
+			var arr3 = arr.sort(function (a, b) {
+				return b-a; 
+			})    // 大到小排,返回新数组
+			console.log(arr3);
+			
+			
+		</script>
+	</body>
+</html>

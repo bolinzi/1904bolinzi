@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function leapYear (n, m) {
+				for(var year = n; year <= m; year++){
+					if(year % 4 === 0 && year % 100 !== 0 || year % 400 === 0){
+						console.log(year);
+					}
+				}
+			}
+			leapYear(2000, 2100);
+		</script>
+	</body>
+</html>

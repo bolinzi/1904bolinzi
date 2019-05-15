@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../tools.js"></script>
+		<style>
+			#box { width: 200px; height: 200px; background: red;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script>
+			var box = tools.$("#box");
+			// var width = box.style.width; // 只能获取内联样式
+			
+			var cssObj = getComputedStyle(box, false)
+			console.log(cssObj.width);
+			
+			box.style.height = '300px';
+			
+			function getStyle () {
+				console.log("getStyle")
+			}
+
+			var width = tools.getStyle(box, "width");
+			getStyle();
+			console.log(width);
+		</script>
+	</body>
+</html>

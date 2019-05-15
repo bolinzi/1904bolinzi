@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form id="baidu-form" action="http://www.baidu.com">
+			<input type="text">
+			<button>提交</button>
+		</form>
+		<script>
+			// 表单提交事件
+			var form = document.querySelector("#baidu-form");
+			var input = form.querySelector('input');
+			var btn = form.querySelector("button");
+			// form.onsubmit = function (e) {
+			btn.onclick = function (e){
+				e = e || event;
+				// 验证输入是否为空
+				if(input.value === ""){
+					// 不允许提交
+					// 阻止默认事件
+					// return false;
+					// window.event.returnValue = false;
+					e.preventDefault(); 
+				}
+				
+				// ??? 
+				console.log(123);
+			}
+		</script>
+	</body>
+</html>

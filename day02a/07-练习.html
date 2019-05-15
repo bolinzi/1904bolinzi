@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 1 开发一款软件，根据公式（身高-108）*2=体重，可以有10斤左右的浮动。来观察测试者体重是否合适
+			
+			/* var height = Number(prompt("请输入身高"));
+			var weight = Number(prompt("请输入体重"));
+			// 根据公式计算标准体重
+			var sWeight = (height - 108) * 2;
+			
+			if(weight >= sWeight-10 && weight <= sWeight+10){
+				console.log("魔鬼身材");
+			}else if(weight < sWeight - 10){
+				console.log("赶紧多吃点");
+			}else{
+				console.log("跟猪一样");
+			} */
+			
+			
+			
+			// 2 输入分数，判定成绩等级
+			
+			var grade = Number(prompt("输入你的js成绩"));
+			if(grade >= 60) {
+				// 及格了
+				if(grade >= 90) alert("优秀");
+				else if(grade >= 75) alert("良");
+				else alert("合格");
+			}else{
+				alert("回家种田");
+			}
+			
+			
+			// 3 判断一个三位数是否是水仙花数（如：153 = 1^3 + 5^3 + 3^3，那么153就是水仙花数，
+			//  水仙花数只有四个： 153，370，371，407）
+			/* var num = Number(prompt("请输入一个三位数"));
+			// 取出个十百位
+			var ge = num % 10;
+			var shi = parseInt(num/10) % 10;
+			var bai = parseInt(num/100);
+			
+			// 判断公式是否成立
+			// ge**3 代表ge的三次方
+			if(num === ge**3 + shi**3 + bai**3){
+				console.log(num+"是水仙花数");
+			}else{
+				console.log(num+"不是水仙花数");
+			} */
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

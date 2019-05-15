@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function pow (n) {
+				return n*n;
+			}
+			
+			function jc (n) {
+				/* for(var i = 1, res = 1; i <= n; i++){
+					res *= i;
+				}
+				return res; */
+				
+				/* if(n === 1) return 1;
+				return jc(n-1) * n; */
+				
+				return n === 1 ? 1 : jc(n-1) * n;
+			}
+			
+			function fn (a, b) {
+				/* var a2 = pow(a);
+				var b2 = pow(b);
+				var a3 = jc(a2);
+				var b3 = jc(b2); */
+				
+				return jc(pow(a)) + jc(pow(b));
+			}
+		</script>
+	</body>
+</html>

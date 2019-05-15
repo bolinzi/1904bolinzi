@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr = [1,2,3];
+			var arr2 = [4,5,6];
+			var arr4 = [7,8,9];
+			var arr5 = [];
+			var arr3 = arr.concat(arr2, arr4);
+			console.log(arr);
+			console.log(arr3);
+			arr5 = arr.concat(arr2);
+			console.log(arr5); // concat创建一个新的数组
+			/* var str = arr3.join(":");
+			console.log(str);  // join 转换成字符串
+			
+			var num = arr3.pop();
+			console.log(arr3);
+			console.log(num); */ // pop 返回原数组,返回值num为删掉的元素
+			
+			var len = arr3.push(10,11,12);
+			console.log(arr3);
+			console.log(len);  // push 返回原数组,返回值len为新的长度
+			
+			arr3.reverse();
+			console.log(arr3);  // reverse 返回原数组
+			
+			// var sub = arr3.slice(1,3); // 截取索引1,2的值,返回一个新数组,不接组3末尾元素
+			var sub = arr3.slice(1); // 截取到末尾,包括末尾
+			// var sub = arr3.slice(-3, -1); // 倒数第3到倒数第1,但是不包含倒数第一
+			console.log(sub);
+			
+			var str = arr3.toString();
+			console.log(str);  // 把数组转换为字符串
+			
+		</script>
+	</body>
+</html>

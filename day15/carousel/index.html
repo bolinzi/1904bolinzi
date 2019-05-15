@@ -1,0 +1,150 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+* {margin:0; padding:0; }
+li{list-style:none; }
+
+#div1 {width:850px; height:500px; margin:50px auto; overflow:hidden; position:relative;}
+#div1 ul li{height:500px;opacity: 0;position: absolute;left: 0;top: 0;z-index: 0;transition: opacity 1.5s;}
+#div1 ul li.ac{z-index: 5;opacity: 1;}
+#div1 ol {position:absolute;right: 10%;bottom: 10px;z-index:6}
+#div1 ol li{width: 20px;height: 20px;background: #fff;margin-left: 5px;float: left;line-height: 20px;text-align: center;cursor: pointer;}
+#div1 ol li.ac{background: red;color: #fff;}
+#div1>a{text-decoration: none;position: absolute;top: 50%;margin-top: -10px;height: 40px;line-height: 32px;text-align: center;width: 40px;font-size: 40px;vertical-align: middle;color: #fff;background: rgba(0,0,0,0.5);z-index:6;}
+#goPrev{left: 0;}
+#goNext{right: 0;}
+img{width:850px; height:500px;}
+</style>
+</head>
+
+<body>
+<div id="div1">
+	<ul>
+    	<li class="ac"><a href="javascript:alert(0);"><img src="1.jpg" /></a></li>
+    	<li><a href="javascript:alert(1);"><img src="2.jpg" /></a></li>
+    	<li><a href="javascript:alert(2);"><img src="3.jpg" /></a></li>
+    	<li><a href="javascript:alert(3);"><img src="4.jpg" /></a></li>
+    	<li><a href="javascript:alert(4);"><img src="5.jpg" /></a></li>
+    </ul>
+    <ol>
+    	
+    </ol>
+    <a href="javascript:;" id="goPrev">&laquo;</a>
+    <a href="javascript:;" id="goNext">&raquo;</a>
+</div>
+<script>
+	// 找对象
+	var div = document.querySelector("#div1"),
+		imgs = div.querySelector("ul").children,
+		ol = div.querySelector("ol"),
+		btns = [], // 放所有的按钮
+		goPrev = document.querySelector("#goPrev"),
+		goNext = document.querySelector("#goNext");
+	
+	var index = 0; // 记录当前图片的下标
+	var lastIndex = 0; // 记录上一次的下标
+	var timer = null; // 自动切换的定时器
+	
+	// 根据imgs的数量创建按钮
+	for(var i = 0; i < imgs.length; i++) {
+		var li = document.createElement("li");
+		li.innerHTML = i+1;
+		if(i === 0) li.className = "ac";
+		ol.appendChild(li);
+		// 每创建一个li放到btns数组里
+		btns.push(li);
+	}
+	
+	// 按钮点击
+	for(let i = 0; i < btns.length; i++) {
+		btns[i].onclick = function () {
+			// 当前按钮样式修改
+			// 当前按钮对应的图片修改
+			
+			// 在index修改之前指的是上一次的下标,remove
+			/* btns[index].classList.remove('ac');
+			imgs[index].classList.remove('ac');
+			
+			// index修改为当前下标
+			index = i;
+			// add
+			this.classList.add('ac');
+			imgs[index].classList.add("ac"); */
+			
+			index = i; // 当前下标就是i
+			
+			changeImg();
+			// 为下一次点击做准备
+			lastIndex = index; // 现任变成前任
+		}
+	}
+	
+	// 向后切换
+	goNext.onclick = function () {
+		// 如果加完以后超出范围,回到0
+		if(++index === imgs.length) {
+			index = 0;
+		}
+		changeImg();
+		lastIndex = index; // 往前走一步
+		
+	}
+	
+	// 向前切换
+	goPrev.onclick = function () {
+		if(--index < 0) {
+			// 减完之后小于0,回到最后一张
+			index = imgs.length-1;
+		}
+		changeImg();
+		lastIndex = index;
+	
+	}
+	
+	// 自动切换
+/* 	function autoPlay () {
+		// 每隔2.5s触发一次向右点击事件
+		timer = setInterval(goNext.onclick, 2500);
+// 		timer = setInterval(function () {
+// 			goNext.onclick();
+// 		}, 2500);
+	}
+	autoPlay();
+	div.onmouseleave = autoPlay; */
+	
+	// 一个IIFE,首先自调用一次,return了autoPlay函数本身,这个函数就是mouseleave的事件处理函数
+	div.onmouseleave = (function autoPlay() {
+		timer = setInterval(goNext.onclick, 2500);
+		return autoPlay;
+	})();
+	
+	div.onmouseenter = function () {
+		// 停止自动切换
+		clearInterval(timer);
+	}
+	
+	
+	
+	
+	// 负责切换的函数
+	function changeImg () {
+		btns[lastIndex].classList.remove('ac');
+		imgs[lastIndex].classList.remove('ac');
+		
+		btns[index].classList.add('ac');
+		imgs[index].classList.add('ac');
+		
+	}
+	
+	
+	
+		
+	
+	
+</script>
+</body>
+</html>

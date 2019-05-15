@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.center{
+				padding: 20px;
+				width: 200px;
+				min-height: 50px;
+				height: 50px;
+				line-height: 50px;
+				background: green;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<button>弹框</button>
+		<script>
+			var btn = document.querySelector("button");
+			btn.onclick = function () {
+				var div = document.createElement('div');
+				div.innerHTML = 'FBI Warning';
+				div.className = 'center';
+				document.body.appendChild(div);
+				// div插入body以后开始计时
+				var timer = setTimeout(function () {
+					document.body.removeChild(div);
+				}, 2000);
+				
+				div.onmouseenter = function () {
+					clearTimeout(timer);
+				}
+				
+				div.onmouseleave = function () {
+					// timer还是使用外层的同一个timer
+					timer = setTimeout(function () {
+						document.body.removeChild(div);
+					}, 2000);
+				}
+				
+			}
+		</script>
+	</body>
+</html>

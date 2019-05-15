@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0}
+body{ height:2000px;}
+.backtop{height:50px; width:50px; background:red; position:fixed; 
+	bottom:50px; right:50px; display:none;cursor: pointer;
+	text-align: center;line-height: 50px;}
+</style>
+</head>
+
+<body>
+
+
+</body>
+</html>
+<script src="../../tools.js"></script>
+<script>
+	
+	//浏览器的高,可视区窗口
+	var bodyHeight = tools.getBodySize().height;
+	//文档内容高
+	var height = tools.$("body").offsetHeight;
+	
+	if(height > bodyHeight){
+		//创建“回到顶部”div
+		var backtop = document.createElement("div");
+		backtop.className = "backtop";
+		backtop.innerHTML = "top";
+		document.body.appendChild(backtop);
+		window.onscroll = function(){
+			var sTop = document.documentElement.scrollTop || document.body.scrollTop;
+			if(sTop>bodyHeight){
+				//滚动至下一屏
+				backtop.style.display = "block";
+			}else{
+				backtop.style.display = "none";
+			}
+		};
+		
+		backtop.onclick = function(){
+			var start = document.documentElement.scrollTop || document.body.scrollTop;
+			//缓冲运动
+			var timer = setInterval(function(){
+				var speed = Math.floor(-start/10);
+				start += speed;
+				//控制窗口滚动条的位置，分别为x,y坐标
+				window.scrollTo(0,start);
+				if(start == 0)
+					clearInterval(timer);
+				
+			},30); 
+		};
+	}
+
+	
+
+
+</script>

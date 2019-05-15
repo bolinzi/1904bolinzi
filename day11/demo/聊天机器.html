@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0}
+input{ vertical-align:middle}
+.main{ width:300px; margin:10px auto 0;}
+.dialog{height:400px; border:1px solid #ccc; overflow:auto}
+.talkArea{ margin-top:20px;}
+textarea{ width:298px; height:100px; resize:none; border:1px solid #ccc}
+p { overflow:hidden; margin-bottom:20px; padding:10px}
+p span{ padding:10px; background:#ddd;}
+button{ height:40px; width:100px;}
+.fl{float:left;}
+.fr{ float:right;}
+</style>
+</head>
+
+<body>
+<div class="main">
+    <div id="dialog" class="dialog">
+    	<div id="cont" class="cont">
+        	<p><span class="fl">hi</span></p>
+        	<p><span class="fl">我是聊天美眉</span></p>
+            <p><span class="fl">请问有什么可以帮助你?</span></p>
+        </div>
+    </div>
+
+    <div class="talkArea">
+        <textarea id="textArea"></textarea>
+        <p style="text-align:right;">
+        	<label style="font-size:12px; color:#999"><input id="checkbox" type="checkbox" /> 回车直接发言</label>
+            <button id="btn" type="button" disabled>发言</button>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
+	<script>
+
+		var arr=['hi',"18","我是美女","谢谢","你说啥??"];
+
+		var dialog=document.getElementById('dialog');
+		var cont=document.getElementById('cont');
+		var oBtn=document.getElementById('btn');
+		var textArea=document.getElementById('textArea');
+		var chkBox=document.getElementById('checkbox');
+
+		var txt="";//保存输入内容
+
+
+		//点击发送----------------------------------------------
+		oBtn.onclick=send;
+
+		function send(){
+			//将内容发送到聊天窗口中（用户发送的内容在右边，class="fr"）
+			cont.innerHTML+='<p><span class="fr">'+textArea.value+'</span></p>';
+			//滚动条滚动距离等于dialog内容总高度减去dialog的显示高度
+			dialog.scrollTop=dialog.scrollHeight-dialog.clientHeight;//设置滚动条在最底部
+			//按钮不能点击
+			oBtn.disabled=true;
+			//保存输入内容
+			txt=textArea.value;
+			//文本域清空
+			textArea.value="";
+			//
+			//textArea.focus();
+
+			//2秒后自动回话
+			setTimeout(function(){
+				//机器人的回话在左边，class="fl"
+				switch(txt){
+					case "你好":
+					cont.innerHTML+='<p><span class="fl">'+arr[0]+'</span></p>';
+					break;
+					case "你多大":
+					cont.innerHTML+='<p><span class="fl">'+arr[1]+'</span></p>';
+					break;
+					case "你是男生女生":
+					cont.innerHTML+='<p><span class="fl">'+arr[2]+'</span></p>';
+					break;
+					case "你真漂亮":
+					cont.innerHTML+='<p><span class="fl">'+arr[3]+'</span></p>';
+					break;
+					default:
+					cont.innerHTML+='<p><span class="fl">'+arr[4]+'</span></p>';
+				}
+				////设置滚动条在最底部
+				dialog.scrollTop=dialog.scrollHeight-dialog.clientHeight;
+			},2000);
+		};
+
+
+		//输入文本控制按钮状态---------------------------------------------
+		textArea.onkeyup=function(){
+			//内容为空的时候按钮不能点击
+			oBtn.disabled=this.value!="" ? false:true;
+		};
+
+		//控制回车直接发送----------------------------------------
+		textArea.onkeydown=function(ev){
+			ev=ev||event;
+			if(chkBox.checked && ev.keyCode==13){
+				send();
+				//阻止默认行为
+				ev.preventDefault();
+				return false; //无法再进行输入(防止textarea内部回车)
+			};
+		};
+
+
+    </script>

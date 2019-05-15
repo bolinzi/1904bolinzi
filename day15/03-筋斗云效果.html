@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul {list-style:none;}
+        body {
+            background-color: #000;
+        }
+        .nav {
+            width: 800px;
+            height: 42px;
+            background:url(rss.png) no-repeat right center #fff;
+            margin: 100px auto;
+            border-radius: 5px;
+            position: relative; 
+        }
+        .cloud {
+            width: 83px;
+            height: 42px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url(cloud.gif) no-repeat;
+        }
+        .nav ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .nav li {
+            float: left;
+            width: 88px;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+            color: #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="nav" id="nav">
+    <span class="cloud" id="cloud"></span>
+    <ul id="box">
+        <li>首页新闻</li>
+        <li>千锋师资</li>
+        <li>千锋活动策划</li>
+        <li>企业文化</li>
+        <li>招聘信息</li>
+        <li>公司简介</li>
+        <li>上海校区</li>
+        <li>广州校区</li>
+    </ul>
+</div>
+</body>
+</html>
+<script src="tools.js"></script>
+<script>
+	/* var aLi = document.querySelector("#box").children;
+	var cloud = document.querySelector("#cloud");
+	var index = 0; // 记录当前下标
+	
+	for(let i = 0; i < aLi.length; i++){
+		aLi[i].onmouseenter = function () {
+			tools.move2(cloud, 'left', this.offsetLeft);
+			// cloud.style.left = this.offsetLeft + "px";
+		}
+		
+		aLi[i].onmouseleave = function () {
+			// 回到第index的li上
+			tools.move2(cloud, 'left', aLi[index].offsetLeft);
+		}
+		
+		aLi[i].onclick = function () {
+			// 记录下标
+			index = i;
+		}
+	}
+	 */
+	var lis = document.querySelectorAll("li");
+	var cloud = document.querySelector("span");
+	var index = 0 ;
+	for(let i = 0 ; i < lis.length ; i++){
+		lis[i].onmouseenter = function(){
+			tools.move2(cloud, "left", this.offsetLeft);
+		};
+		lis[i].onmouseleave= function(){
+			tools.move2(cloud, "left", lis[index].offsetLeft);
+		};
+		lis[i].onclick= function(){
+			index = i ;
+		};
+	}
+		
+	
+</script>

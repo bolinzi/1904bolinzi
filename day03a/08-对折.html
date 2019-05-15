@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 一张纸的厚度是0.0001米，将纸对折，对折多少次厚度超过珠峰高度8848米（27次）
+			var height = 0.0001;
+			var count = 0;
+			while(height <= 8848){
+				count++;
+				height *= 2;
+			}
+			console.log(count);
+		</script>
+	</body>
+</html>

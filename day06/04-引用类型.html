@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr = [1,2,3,3,7,8,4];
+			console.log(typeof arr); // object
+			var arr2 = arr;
+			arr2[arr2.length] = 10;
+			// 引用类型,arr和arr2指向同一片地址
+			console.log(arr2);
+			console.log(arr);
+			
+			var a = 20;
+			var b = a;
+			b = 21;
+			console.log(a, b);
+		</script>
+	</body>
+</html>

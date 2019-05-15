@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.ccc{color: #ccc;}
+		</style>
+	</head>
+	<body>
+		<input type="text" value="请输入密码" class="ccc"/>
+		<script>
+			var input = document.querySelector("input");
+			input.onfocus = function(){
+				if(this.className == "ccc"){
+					//代表现在是placeholder的状态
+					this.value = "";
+					this.className = "";
+				}
+			}
+			
+			input.onblur = function(){
+				if(this.className === "" && this.value === ""){
+					//重回placeholder的状态
+					this.value = "请输入密码";
+					this.className = "ccc";
+				}
+			}
+		</script>
+	</body>
+</html>

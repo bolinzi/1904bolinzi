@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 打印100以内所有偶数的和
+			
+			var sum = 0;
+			var i = 1;
+			while(i <= 100){
+				if(i % 2 === 0) sum += i;
+				i++;
+			}
+			console.log(sum);
+			
+			// 打印出1000-2000年中所有的闰年，（并以每行四个数的形式输出)
+			var year = 1000;
+			var count = 0; // 记录闰年的个数
+			while(year <= 2000){
+				if(year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+					document.write(year+"&nbsp;");
+					// 每找到一个闰年,count加一
+					count++;
+					// 判断是否换行
+					if(count % 4 === 0) document.write("<br>");
+					
+				}
+				
+				year++;
+			}
+			
+			
+			// 打印100–200之间所有能被3或者7整除的数
+			var i = 100;
+			while(i <= 200) {
+				if(i % 3 === 0 || i % 7 === 0) console.log(i);
+				i++;
+			}
+			
+		</script>
+	</body>
+</html>

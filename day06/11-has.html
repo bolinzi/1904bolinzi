@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 编写函数has(arr , num) 判断数组中是否存在num这个元素，返回布尔类型
+			function has(num, arr){
+				for(var i = 0; i < arr.length; i++){
+					if(arr[i] === num) {
+						return true;
+					}
+				}
+				// 如果进入了if那么就不会执行这个return
+				return false;
+			}
+		</script>
+	</body>
+</html>

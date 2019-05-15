@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box{width: 200px; height: 200px; background: red; position: absolute;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script src="../tools.js"></script>
+		<script>
+			var box = document.querySelector("#box");
+			var maxTop = tools.getBodySize().height - box.offsetHeight;
+			document.onkeydown = function (e) {
+				e = e || event;
+				var code = e.keyCode || e.which;
+				console.log(code);
+				switch(code) {
+					// w ↑
+					case 87: 
+						var top = box.offsetTop - 5;
+						if(top < 0) top = 0;
+						box.style.top = top + "px"; 
+					break;
+					// s ↓
+					case 83: 
+						var top = box.offsetTop + 5;
+						if(top > maxTop) top = maxTop;
+						box.style.top = top + "px"; 
+					break;
+					
+				}
+			}
+		</script>
+	</body>
+</html>

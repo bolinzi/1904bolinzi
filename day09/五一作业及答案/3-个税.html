@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // 编写一个函数，传入税前工资和专项附加扣除金额，得到税后工资（具体规则请自行百度，以2019年新的个税标准为准，假定传入的税前工资已经扣除了五险一金）
+  function tax (salary, extra) {
+    var res = 0;
+    // 得到减去基数之后的薪资
+    salary = extra ? salary - extra - 5000 : salary - 5000;
+    // 计算方式为当前区间乘以当前税率，这样的话就把前一个区间也算成了当前区间的税率，所以要减去速算扣除数
+    if(salary < 0) res = 0;
+    else if (salay > 0 && salary <= 3000) res = salary * 0.03;
+    else if (salary > 3000 && salary <= 12000) res = salary * 0.1 - 210;
+    else if (salary > 12000 && salary <= 25000) res = salary * 0.2 - 1410;
+    else if (salary > 25000 && salary <= 35000) res = salary * 0.25 - 2660;
+    else if (salary > 35000 && salary <= 55000) res = salary * 0.3 - 4410;
+    else if (salary > 55000 && salary <= 80000) res = salary * 0.35 - 7160;
+    else if (salary > 80000) res = salary * 0.45 - 15160;
+    return res;
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*
+			  创建div容器  400*400
+			 * 创建4行子div
+			 * 4行子div中，在放四列子div，float
+			 * 写一个方法，创建4列子div，在创建一行div 1行4列放入容器中
+			 * 定时器，每30毫秒增加top值 往下挤
+			 * 每往下100px，在创建1行4列插入最顶，把最底下的删除
+			 * 				<div class="row">
+					<div class="cell"></div>
+					<div class="cell black"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+				</div>
+				
+				<div class="row">
+					<div class="cell black"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+				</div>
+				
+				<div class="row">
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell black"></div>
+					<div class="cell"></div>
+				</div>
+				
+				<div class="row">
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell black"></div>
+					<div class="cell"></div>
+				</div>
+			 * */
+			#box{
+				width:400px;
+				height: 400px;
+				background: pink;
+				border: 2px solid green;
+				margin: 0 auto;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			#container{
+				width:400px;
+				height: 400px;
+				position: relative;
+				top:-100px;
+				}
+				
+		.row{
+			width: 100%;
+			height: 100px;
+		}
+		.cell{
+			width: 100px;
+			height: 100px;
+			float:left;
+		}
+			.black{background: black;}	
+			#score{text-align: center;}
+		</style>
+	</head>
+	<body>
+		<h1 id="score">0</h1>
+		<div id="box">
+			<div id="container">
+			</div>
+		</div>
+          <script src="../../tools.js"></script>
+          <script>
+          	var con=tools.$("#container");
+          	var timer=null;
+          	//创建div
+          	function cDiv(className){
+          		var div=document.createElement("div");
+          		    div.className=className;
+          		    return div;
+          	}
+          	
+          	//创建行
+          	function cRow(){
+          		var row=cDiv("row");//创建一行四列
+          		var classes=Sn();
+          		for(var i=0;i<4;i++){
+//        			var cell=cDiv("cell");
+          			row.appendChild(cDiv(classes[i]));
+          		}
+          		if(con.firstChild==null){
+          			con.appendChild(row);
+          		}else{
+          			con.insertBefore(row,con.firstChild);
+          		}
+          		
+          	}
+          	
+          	//创建4行
+          	function init(){
+          		for(var i=0;i<4;i++){
+          			cRow();
+          		}
+          	}
+          	
+          	//随机 3个cell 1个cell black 数组
+          	function Sn(){
+          		var arr=["cell","cell","cell","cell"];
+          		//随机
+          		var index=Math.floor(Math.random()*4);
+          		arr[index]="cell black";
+          		return arr;
+          	}
+          	
+          	//移动
+          	function move(){
+          		var top=parseInt(tools.getStyle(con,"top"));
+          		 top +=2;
+          		 con.style.top=top + "px";
+          		 if(top == 0){
+          		   cRow();
+          		   con.style.top="-100px";//创建新行
+          		   delRow();//删除旧行
+          		 }
+          	}
+          	
+          	//自己动，定时器
+          	function dong(){
+          		timer=setInterval("move()",30);
+          	}
+          	
+          	//创建新行，删除旧行
+          	function delRow(){
+          		con.removeChild(con.lastChild);
+          	}
+          	
+           //事件委派，点击事件
+           tools.on(box,"click",function(e){
+           	e = e || event;
+           	var target=e.target || e.srcElement;
+           	    if(target.className.indexOf("black")==-1){//没找到黑块
+           	    	clearInterval(timer);
+           	    	alert("游戏结束！");
+           	    }else{
+           	    	target.className="cell";
+           	    	score();//加分
+           	    }
+           });
+          	
+          	init();
+//        	move();
+            dong();
+         
+          function score(){
+          	var score=tools.$("#score");
+          	score.innerHTML=parseInt(score.innerHTML)+1;
+          }
+          
+          
+          </script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 每位数字都加上5,然后用除以10的余数代替该数字，再将第一位和第四位交换，第二位和第三位交换
+			function secret (num) {
+				// 每一位取出来
+				var ge = (num % 10 + 5) % 10;
+				var shi = (parseInt(num/10) % 10 + 5) % 10;
+				var bai = (parseInt(num/100) % 10 + 5) % 10;
+				var qian = (parseInt(num/1000) + 5) % 10;
+				return ge*1000 + shi*100 + bai*10 + qian;
+			}
+			console.log(secret(1234));
+			console.log(secret(1530));
+		</script>
+	</body>
+</html>

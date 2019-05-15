@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../tools.js"></script>
+		<style>
+				#box{width: 200px; height: 200px; background: green; position: absolute;}
+			</style>
+		</head>
+		<body>
+			<div id="box"></div>
+		<script>
+			let box = tools.$("#box");
+			/* tools.on(box, 'click', function () {
+				tools.move(box, 'left', 300, 3000);
+			}); */
+			box.onclick = function(){
+				tools.move(box, 'left', 300, 3000);
+			}
+		</script>
+	</body>
+</html>

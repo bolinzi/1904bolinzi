@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			console.log(window);
+			// 一般window可以省略
+			console.log(window.document);
+			
+			var a = 20;
+			console.log(a);
+			// 全局变量默认属于window的
+			console.log(window.a);
+			
+			function fn () {
+				// 在任何位置不写var申明变量的话变量默认是属于window的
+				b = 10; // 不写var b就是一个全局变量 相当于 window.b = 10;
+			}
+			
+			window.fn(); // 全局函数属于window
+			console.log(b); // 10
+			
+			console.log(window.b);
+			console.log(this.b); // 全局的this 指向window
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function feb (n) {
+				if(n === 1 || n === 2) {
+					return 1;
+				}
+				return feb(n-1) + feb(n-2);
+			}
+			feb(5);
+			/* feb(4) + feb(3)
+			feb(3) + feb(2) + feb(2) + feb(1)
+			feb(2) + feb(1) + feb(2) + feb(2) + feb(1)
+			1 + 1 + 1 + 1 + 1 + 1 */ 
+		</script>
+	</body>
+</html>

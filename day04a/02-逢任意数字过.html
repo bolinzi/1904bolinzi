@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 函数实现1-100中7的倍数或者带7的数（逢任何数字（通过传参）过）
+			function fn (n) {
+				// console.log(n);
+				for(var i = 1; i <= 100; i++){
+					if(i % n === 0 || i % 10 === n || parseInt(i / 10) === n){
+						console.log("过");
+						continue;
+					}
+					console.log(i);
+				}
+			}
+			
+			fn(6);
+		</script>
+	</body>
+</html>

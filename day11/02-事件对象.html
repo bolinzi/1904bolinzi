@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">box</div>
+		<script>
+			
+			var box = document.querySelector("#box");
+			// 当事件触发的时候会得到关于这个事件的一些信息 (得到的是事件触发的设备)
+			// 鼠标事件: 鼠标位置... 
+			// w3c标准里, 预处理函数第一个形参默认就是事件对象 event  e ev  evt 
+			/* box.onclick = function (e) {
+				// console.log(e);
+				console.log(e.clientX);
+			} */
+			
+			box.onmousedown = function (e) {
+				e = e || event; // IE兼容
+				console.log(e.buttons);
+			}
+			
+			
+		</script>
+	</body>
+</html>

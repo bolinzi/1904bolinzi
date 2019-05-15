@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="http://www.baidu.com" id="form">
+			<input type="text" id="name" name="user">
+			<input type="checkbox" id="check" name="check">
+			<select id="city">
+				<option>成都</option>
+				<option value="2">北京</option>
+				<option value="3">东京</option>
+			</select>
+			<button>提交</button>
+		</form>
+		<script>
+			var input = document.getElementById("name");
+			var city = document.getElementById("city");
+			var check = document.getElementById("check");
+			var form = document.getElementById("form");
+			
+			// this: "我" ,谁触发就指谁
+			input.onkeyup = function () {
+				// 在键盘抬起的时候获取value值
+				console.log(this.value);
+			}
+			
+			city.onchange = function () {
+				// 表单元素选择状态发生改变的时候
+				// 如果option里有value,获取value,如果没有就获取内容
+				console.log(this.value);
+			}
+			
+			check.onchange = function () {
+				console.log(this.checked);
+			}
+			
+			form.onsubmit = function () {
+				// 表单提交事件
+				alert(123);
+			}
+			
+		</script>
+	</body>
+	
+</html>

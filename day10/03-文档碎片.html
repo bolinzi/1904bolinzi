@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul></ul>
+		<script>
+			// DOM操作消耗性能
+// 			document.write("123");
+// 			alert(123);
+			
+			var ul = document.querySelector("ul");
+			// 创建文档碎片
+			var cache = document.createDocumentFragment();
+			for(var i = 1; i <= 10; i++) {
+				var li = document.createElement("li");
+				li.innerHTML = i;
+				// append到缓存里
+				cache.appendChild(li);
+			}
+			
+			// 把缓存append到ul里
+			// DOM操作只有这一次
+			ul.appendChild(cache);
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

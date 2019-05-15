@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var i = 0;
+			while(i < 100){
+				i++;
+				if(i % 7 === 0 || i % 10 === 7 || parseInt(i/10) === 7){
+					console.log("过");
+					// 结束本次循环,进入下一次循环
+					continue;
+				}
+				console.log(i);
+				
+			}
+		</script>
+	</body>
+</html>

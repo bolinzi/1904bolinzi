@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>item1</li>
+			<li>item2</li>
+			<li>item3</li>
+			<li>item4</li>
+		</ul>
+		<script>
+			// 点击li得到索引
+			var lis = document.querySelectorAll('li');
+			/* for(var i = 0; i < lis.length; i++) {
+				lis[i].index = i;
+				lis[i].onclick = function () {
+					alert(this.index);
+				}
+			} */
+			
+			/* Array.from(lis).forEach(function (li, index) {
+				// 每循环一次,就有一个函数被调用,四个函数是互相独立的,index也是独立的
+				li.onclick = function () {
+					alert(index);
+				}
+			}) */
+			
+			for(let i = 0; i < lis.length; i++) {
+				// 每次循环都进入一个新的块,所以i是独立的
+				lis[i].onclick = function () {
+					alert(i);
+				}
+			}
+			
+		</script>
+		
+	</body>
+</html>

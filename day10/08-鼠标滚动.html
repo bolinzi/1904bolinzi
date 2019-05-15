@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{width: 200px; height: 300px; border: 1px solid #333; overflow: auto;}
+		</style>
+	</head>
+	<body>
+		<div>
+			<p>vsfd</p>
+			<p>vsfd</p>
+			<p>vsfd</p>
+			<p>vsfd</p>
+			<p>vsfd</p>
+			<p>vsfd</p>
+			<p>vsfd</p>
+			<p>vsfd</p>
+			<p>vsfd</p>
+			<p>vsfd</p>
+			<p>vsfd</p>
+			<p>vsfd</p>
+			<p>vseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeefd</p>
+			<p>vsfd</p>
+			<p>vsfd</p>
+			<p>vsfd</p>
+			<p>vsfd</p>
+		</div>
+	</body>
+	<script src="../tools.js"></script>
+	<script>
+		/* tools.$("div").onmousewheel = function () {
+			console.log(this.scrollTop);
+		} */
+		
+		tools.$("div").onscroll = function () {
+			console.log(this.scrollTop, this.scrollLeft);
+		}
+	</script>
+</html>

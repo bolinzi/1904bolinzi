@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function cfb (n) {
+				for(var i = 1; i <= n; i++){
+					for(var j = 1; j <= i; j++){
+						document.write(j+"X"+i+"="+j*i+"&nbsp;");
+					}
+					document.write("<br>");
+				}
+			}
+			cfb(9);
+			cfb(19);
+		</script>
+	</body>
+</html>

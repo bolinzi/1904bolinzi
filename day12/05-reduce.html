@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr = [2,3,4,5,6,7,3];
+			// 归并
+			var sum = arr.reduce(function (prev, next) {
+				// 每一个返回值作为下一次迭代的prev
+				console.log(1);
+				return prev + next;
+			}, 0);
+			console.log(sum);
+			
+			var arr2 = [
+				[1,2,3],
+				[4,5,6],
+				[7,8,9]
+			];
+			
+			var arr3 = arr2.reduce(function (res, item) {
+				return res.concat(item);
+			}, []);
+			console.log(arr3);
+			
+			var arr4 = arr2.reduceRight(function (res, item) {
+				return res.concat(item);
+			}, []);
+			console.log(arr4);
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

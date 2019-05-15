@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function fn (n){
+				return n++;
+				// return n=n+2;
+			}
+			var a = 10;
+			// 值传递
+			console.log(a); // 10
+			console.log(fn(a)); 
+			
+			// 引用传递
+			function fn1(arr){
+				arr[arr.length] = 11;
+			}
+			var arr1 = [1,2,3];
+			// 引用传递
+			fn1(arr1);
+			console.log(arr1); // [1,2,3,11]
+		</script>
+	</body>
+</html>

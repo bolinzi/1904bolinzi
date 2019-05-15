@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 定义一个30项的数组， 按顺序分别赋予从2开始的偶数；在每间隔 5个数 之后，求出前五个数的平均值；
+// 			var arr = new Array(30);
+// 			for(var i = 0; i < arr.length; i++) {
+// 				// 给每一个元素赋值
+// 				arr[i] = (i+1) * 2;
+// 			}
+// 			
+// 			for(var j = 0, sum = 0; j < arr.length; j++) {
+// 				sum += arr[j];
+// 				// 遇到索引为4,9,14,18...计算平均数
+// 				if(j % 5 === 4) {
+// 					console.log(sum/5);
+// 					// sum归零,为下五个数做准备
+// 					sum = 0;
+// 				}
+// 			}
+			
+			// 定义一个含有11个元素的数组  计算下标为奇数的元素的平均数
+			/* var arr1 = [3,2,4,4,3,4];
+			for(var i = 0, sum = 0, count = 0; i < arr1.length; i++) {
+				// sum负责求和,count负责记录奇数个数
+				if(i % 2) {
+					sum += arr1[i];
+					count++;
+				}
+			}
+			console.log(sum / count); */
+			
+			// 通过循环按行顺序为一个5×5的二维数组a赋1到25的自然数，然后输出该数组的左下半三角
+			/* i   j     arr1[j]
+			0  0-4    1-5
+			1  0-4    6-10
+			2  0-4    11-15 */
+			var arr = new Array(5);
+			for(var i = 0; i < arr.length; i++) {
+				var arr1 = new Array(5);
+				for(var j = 0; j < arr1.length; j++) {
+					arr1[j] = j+1 + i*5;
+				}
+				arr[i] = arr1;
+			}
+			console.log(arr);
+			
+			// 外层循环控制行, 第i行,每一行arr[i]又是一个数组
+			for(var i = 0; i < arr.length; i++) {
+				// 内层控制列,当前这一行arr[i] 的第j列
+				for(var j = 0; j < arr[i].length; j++) {
+					// 行号大于等于列号,代表左下半角
+					if(i >= j) {
+						document.write(arr[i][j] + "&nbsp;");
+					}
+				}
+				document.write("<br>");
+			}
+			
+		</script>
+	</body>
+</html>

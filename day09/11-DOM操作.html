@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../tools.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<p>ewf</p>
+		</div>
+		<script>
+			// document.write("<div>box</div>");
+			var box = $("#box");
+			var p = $("p", false, box);
+			// 给box内部解构赋值
+			// box.innerHTML = "<div>box</div>";
+			
+			// 创建一个div元素
+			var div = document.createElement("div");
+			div.innerHTML = "box";
+			div.className = "son";
+			// 追加到box的最后一个子元素
+			box.appendChild(div);
+			var div1 = div.cloneNode(); // 浅克隆,只克隆了div本身,里面的内容没有被克隆
+			box.appendChild(div1);
+			var div2 = div.cloneNode(true); // 深克隆,连着子元素一起克隆
+			box.appendChild(div2);
+			
+			var div3 = div.cloneNode(true);
+			box.insertBefore(div3, p); // 再box内部,把div3插入到p前面
+			
+			
+			// box.removeChild(p); // 删除p标签
+			// p.parentNode.removeChild(p);
+			p.remove(); // IE8+
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

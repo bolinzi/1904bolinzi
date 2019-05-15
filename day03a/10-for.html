@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/* for(循环变量的定义; 循环条件; 步进){
+				循环体,条件成立的时候反复执行的代码
+			} */
+			
+		/* 	for(var i = 0; i < 10; i++){
+				console.log(i);
+			}
+			console.log(i); // 10 */
+			var i = 0;
+			// 1,2,4步时可选的,但是容易造成死循环
+			for(; i < 10;){
+				console.log(i);
+				i++;
+			}
+			/* 三种循环的联系和区别
+
+			1、都是会反复执行的代码块
+			2、大部分情况下可以互相替换
+			3、do...while至少执行一次，while和for有可能0次，while不太能确定执行次数，for可以 */
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{border: 1px solid #333;}
+			#yeye{width: 500px; height: 500px;}
+			#son{width: 200px; height: 200px;position: relative;left:50px;}
+			#sunzi{width: 60px; height: 60px;position: absolute;left: 200px;}
+		</style>
+	</head>
+	<body>
+		<div id="yeye">
+			<div id="son">
+				<div id="sunzi"></div>
+			</div>
+		</div>
+		<script src="../tools.js"></script>
+		<script>
+			var yeye = tools.$("#yeye");
+			var son = tools.$("#son");
+			var sunzi = tools.$("#sunzi");
+			
+			console.log(sunzi.offsetParent);  // 到offSetParent父元素左边距距离
+			console.log(sunzi.offsetLeft);
+			
+			// 距离整个浏览器边缘的偏移
+			var dis = tools.getBodyDis(sunzi);
+			console.log(dis);
+		</script>
+	</body>
+</html>

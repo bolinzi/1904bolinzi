@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		全选：<input type="checkbox">
+		<p>
+			<input type="checkbox">
+			<input type="checkbox">
+			<input type="checkbox">
+			<input type="checkbox">
+		</p>
+		<script src="../tools.js"></script>
+		<script>
+			var all = tools.$('input');
+			var check = tools.$('input', true, tools.$("p"));
+			// n记录被选中的单选的数量
+			var n = 0;
+			
+			all.onchange = function () {
+				console.log(this.checked);
+				for(var i = 0; i < check.length; i++) {
+					check[i].checked = this.checked;
+				}
+				// 根据全选状态来改变n的值
+				n = this.checked ? check.length : 0;
+			}
+			
+			// 每一个单选绑定事件
+			for (var i = 0; i < check.length; i++) {
+				check[i].onchange = function () {
+					n += this.checked ? 1 : -1;
+					console.log(n);
+					// this.checked ? n++ : n--;
+					/* if(this.checked) {
+						n++;
+					}else{
+						n--;
+					} */
+					// all.checked = n === check.length ? true : false;
+					all.checked = n === check.length;
+				}
+			}
+			
+		</script>
+	</body>
+</html>

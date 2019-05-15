@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box{width: 200px; height: 200px; background: green;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script>
+			let box = document.querySelector("#box");
+			// 定义颜色状态
+			const color = {
+				green: Symbol(),
+				red : Symbol(),
+				blue: Symbol(),
+				yellow: Symbol()
+			}
+			
+			let type = color.green;
+			
+			box.onclick = function () {
+				// 判断开关状态
+				switch(type) {
+					case color.green:
+						this.style.background = 'red';
+						type = color.red;
+					break;
+					case color.red:
+						this.style.background = 'blue';
+						type = color.blue;
+					break;
+					case color.blue:
+						this.style.background = 'yellow';
+						type = color.yellow;
+					break;
+					case color.yellow:
+						this.style.background = 'green';
+						type = color.green;
+					break;
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,135 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0; font-size:14px}
+#box{ width:500px; margin:100px auto}
+table,th,td{ border:1px solid #000; border-collapse:collapse}
+td,th{ width:100px; height:30px; padding:10px}
+input[type="text"]{ display:none; height:24px; width:60px; border:1px solid #ccc;}
+tbody tr td:first-child{text-align: center;}
+tfoot td{text-align: right;}
+.editBtn{ color:#666}
+.delBtn{ color:red}
+.okBtn,.cancelBtn{ display:none}
+
+.edit span{ display:none}
+.edit input[type="text"]{ display:inline-block}
+.edit .editBtn,.edit .delBtn{ display:none}
+.edit .okBtn,.edit .cancelBtn{ display:inline}
+</style>
+
+</head>
+
+<body>
+<div id="box">
+	<table>
+		<thead>
+			<tr>
+	            <th><label>全选：<input type="checkbox" id="allCheck"/></label></th>
+	            <th>名称</th>
+	            <th>单价</th>
+	            <th>数量</th>
+	            <th>编辑</th>
+	        </tr>
+		</thead>
+        <tbody>
+	        <tr>
+	        	<td><input type="checkbox" class="check"/></td>
+	            <td><span>张三</span><input type="text"></td>
+	            <td><span>18</span><input type="text"></td>
+	            <td><span>1</span><input type="text"></td>
+	            <td>
+	            	<a href="javascript:;" class="editBtn">编辑</a>
+	            	<a href="javascript:;" class="okBtn">确定</a>
+	            	<a href="javascript:;" class="cancelBtn">取消</a>
+	            	<a href="javascript:;" class="delBtn">删除</a>
+	            </td>
+	
+	        </tr>
+	        <tr>
+	        	<td><input type="checkbox" class="check"/></td>
+	            <td><span>李四</span><input type="text"></td>
+	            <td><span>25</span><input type="text"></td>
+	            <td><span>2</span><input type="text"></td>
+	            <td><a href="javascript:;" class="editBtn">编辑</a><a href="javascript:;" class="okBtn">确定</a> <a href="javascript:;" class="cancelBtn">取消</a><a href="javascript:;" class="delBtn">删除</a></td>
+	
+	        </tr>
+	        <tr>
+	        	<td><input type="checkbox" class="check"/></td>
+	            <td><span>小强</span><input type="text"></td>
+	            <td><span>22</span><input type="text"></td>
+	            <td><span>3</span><input type="text"></td>
+	            <td><a href="javascript:;" class="editBtn">编辑</a><a href="javascript:;" class="okBtn">确定</a> <a href="javascript:;" class="cancelBtn">取消</a><a href="javascript:;" class="delBtn">删除</a></td>
+	
+	        </tr>
+	        <tr>
+	        	<td><input type="checkbox" class="check"/></td>
+	            <td><span>小明</span><input type="text"></td>
+	            <td><span>16</span><input type="text"></td>
+	            <td><span>4</span><input type="text"></td>
+	            <td><a href="javascript:;" class="editBtn">编辑</a><a href="javascript:;" class="okBtn">确定</a> <a href="javascript:;" class="cancelBtn">取消</a><a href="javascript:;" class="delBtn">删除</a></td>
+	
+	        </tr>
+        </tbody>
+        <tfoot>
+        	<tr>
+        		<td colspan="5">总价：￥<b id="money"></b></td>
+        	</tr>
+        </tfoot>
+   </table>
+</div>
+
+<script>
+	
+	var editBtn = document.querySelectorAll(".editBtn");
+	var delBtn = document.querySelectorAll(".delBtn");
+	var okBtn = document.querySelectorAll(".okBtn");
+	var cancelBtn = document.querySelectorAll(".cancelBtn");
+	
+	// 编辑按钮
+	Array.from(editBtn).forEach(function (btn) {
+		btn.onclick = function () {
+			// 给当前tr加上edit
+			var tr = this.parentNode.parentNode;
+			tr.classList.add("edit");
+			// 把每一个span的innerHTML给到对应的input的value
+			var spans = Array.from(tr.querySelectorAll('span'));
+			spans.forEach(function (span) {
+				span.nextElementSibling.value = span.innerHTML;
+			})
+			
+		}
+	})
+	
+	// 确定按钮
+	Array.from(okBtn).forEach(function (btn) {
+		btn.onclick = function () {
+			// 找到当前行
+			var tr = this.parentNode.parentNode;
+			// 把每一个input的value给对应的span的innerHTML
+			Array.from(tr.querySelectorAll("span")).forEach(function (span) {
+				span.innerHTML = span.nextElementSibling.value;
+			})
+			// 去掉当前行的edit
+			tr.classList.remove("edit");
+		}
+	})
+	
+	// 取消
+	Array.from(cancelBtn).forEach(function (btn) {
+		btn.onclick = function () {
+			// 舍弃更改,回到初始状态
+			// tr的edit移出
+			this.parentNode.parentNode.classList.remove('edit');
+		}
+	})
+	
+	
+	
+	
+</script>
+</body>
+</html>

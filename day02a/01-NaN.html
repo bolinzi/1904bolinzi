@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 在做数字转换的时候,期望得到一个数字,但是转换失败了
+			console.log(typeof NaN);
+			// NaN不能直接比较相等
+			var num = Number("muhs");
+			console.log(num);
+			console.log(num === NaN); // false
+			console.log(isNaN(num)); // true
+			// NaN跟任意数字运算结果都为NaN
+			
+		</script>
+	</body>
+</html>

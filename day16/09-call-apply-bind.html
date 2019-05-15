@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var n = 30;
+			var obj = {
+				n: 10,
+				fn: function (a,b) {
+					console.log(this.n);
+					console.log(a+b);
+				}
+			}
+			
+			var obj2 = {
+				n: 20,
+				fn: function (a,b) {
+					console.log(this.n);
+					console.log(a+b);
+				}
+			}
+			// 再fn正真调用之前把this指向改为obj,
+			obj2.fn.call(obj, 2, 3); // 10
+			obj2.fn.call(this, 2, 3); // 30
+			
+			obj2.fn.apply(obj, [2,3]); // 10
+			obj2.fn.apply(this, [2,3]); // 30
+			
+			var obj3 = {
+				
+				fn: function (a,b) {
+					console.log(this.n);
+					console.log(a+b);
+					// 函数封装的时候就直接修改this指向
+				}.bind(obj2)
+			}
+			
+			obj3.fn(4,5);
+			
+			var obj4 = {
+				n: 100,
+				fn: function () {
+					setTimeout(function () {
+						console.log(this.n);
+						// 把内层this指向修改为外层this
+					}.bind(this), 1000);
+				}
+			}
+			
+			obj4.fn();
+			
+		</script>
+	</body>
+</html>

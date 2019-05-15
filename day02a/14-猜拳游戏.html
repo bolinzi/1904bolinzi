@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 1代表石头 2代表剪刀 3代表 布
+			var userNum = Number(prompt("输入一个1-3的数字"));
+			var comNum = parseInt(Math.random()*3) + 1;
+			console.log(comNum);
+			
+			// var userNum = Number(prompt("输入一个1-3的数字"));
+			switch(userNum){
+				case 1:
+					switch(comNum){
+						case 1 : alert("equal"); break;
+						case 2 : alert("win"); break;
+						case 3 : alert("lose"); break;
+					}
+				break;
+				case 2:
+					switch(comNum){
+						case 1 : alert("lose"); break;
+						case 2 : alert("equal"); break;
+						case 3 : alert("win"); break;
+					}
+				break;
+				case 3:
+					switch(comNum){
+						case 1 : alert("win"); break;
+						case 2 : alert("lose"); break;
+						case 3 : alert("equal"); break;
+					}
+				break;
+				default: alert("你丫不玩拱出去");
+			}
+			
+		</script>
+	</body>
+</html>

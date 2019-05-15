@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 注释 -->
+		afedas<ul>
+			<li>11</li>
+			<li>11</li>
+			<li>11</li>
+		</ul>
+	</body>
+	<script>
+		var ul = document.querySelector("ul");
+		var node1 = ul.previousSibling;
+		console.log(node1.nodeType);
+		console.log(node1.nodeName);
+		
+		console.log(ul.innerHTML);
+		// ul.innerHTML = "<li>222</li>";
+		
+		console.log(ul.innerText);
+		ul.innerText = "<li>222</li>";
+		
+		// 不符合w3c标准
+		console.log(ul.outerHTML); // 包含ul自己
+		
+		// 文本节点才有nodeValue
+		console.log(ul.nodeValue); // 元素节点的nodeValue为null
+		console.log(node1.nodeValue);
+		
+		
+	</script>
+</html>
